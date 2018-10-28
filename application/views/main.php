@@ -165,28 +165,71 @@ defined('BASEPATH') OR exit('');
                                 Dashboard
                             </a>
                         </li>
-                        <li class="<?= $pageTitle == 'Transactions' ? 'active' : '' ?>">
+                        <li class="<?= $pageTitle == 'Dashboard' ? 'active' : '' ?>">
+                            <a href="<?= site_url('dashboard') ?>">
+                                <i class="fa fa-home"></i>
+                                Branches
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Dashboard' ? 'active' : '' ?>">
+                            <a href="<?= site_url('dashboard') ?>">
+                                <i class="fa fa-home"></i>
+                                Whole Sale Transactions
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Dashboard' ? 'active' : '' ?>">
+                            <a href="<?= site_url('dashboard') ?>">
+                                <i class="fa fa-home"></i>
+                                Imports
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Employees' ? 'active' : '' ?>">
+                            <a href="<?= site_url('employees') ?>">
+                                <i class="fa fa-users"></i>
+                                Employee Management
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Employees' ? 'active' : '' ?>">
+                            <a href="<?= site_url('employees') ?>">
+                                <i class="fa fa-users"></i>
+                                Item Sale Control
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Employees' ? 'active' : '' ?>">
+                            <a href="<?= site_url('employees') ?>">
+                                <i class="fa fa-users"></i>
+                                Items Management
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
+                            <a href="<?= site_url('administrators') ?>">
+                                <i class="fa fa-user"></i>
+                                Admin Management
+                            </a>
+                        </li>
+                        <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
+                            <a href="<?= site_url('administrators') ?>">
+                                <i class="fa fa-user"></i>
+                                Reports 
+                            </a>
+                        </li>
+                        <!-- <li class="<?= $pageTitle == 'Transactions' ? 'active' : '' ?>">
                             <a href="<?= site_url('transactions') ?>">
                                 <i class="fa fa-exchange"></i>
                                 Transactions
                             </a>
-                        </li>
+                        </li> -->
                         
-                        <?php if($this->session->admin_role === "Super"):?>
+                        <!-- <?php if($this->session->admin_role === "Super"):?>
                         <li class="<?= $pageTitle == 'Items' ? 'active' : '' ?>">
                             <a href="<?= site_url('items') ?>">
                                 <i class="fa fa-shopping-cart"></i>
                                 Inventory Items
                             </a>
-                        </li>
+                        </li> -->
                         
                         <!--
-                        <li class="<?= $pageTitle == 'Employees' ? 'active' : '' ?>">
-                            <a href="<?= site_url('employees') ?>">
-                                <i class="fa fa-users"></i>
-                                Employees
-                            </a>
-                        </li>
+
                         <li class="<?= $pageTitle == 'Reports' ? 'active' : '' ?>">
                             <a href="<?= site_url('reports') ?>">
                                 <i class="fa fa-newspaper-o"></i>
@@ -200,19 +243,14 @@ defined('BASEPATH') OR exit('');
                             </a>
                         </li>--->
                         
-                        <li class="<?= $pageTitle == 'Database' ? 'active' : '' ?>">
+                        <!-- <li class="<?= $pageTitle == 'Database' ? 'active' : '' ?>">
                             <a href="<?= site_url('dbmanagement') ?>">
                                 <i class="fa fa-database"></i>
                                 Database Management
                             </a>
-                        </li>
+                        </li> -->
                         
-                        <li class="<?= $pageTitle == 'Administrators' ? 'active' : '' ?>">
-                            <a href="<?= site_url('administrators') ?>">
-                                <i class="fa fa-user"></i>
-                                Admin Management
-                            </a>
-                        </li>
+
                         <?php endif; ?>
                     </ul>
                     <br>
