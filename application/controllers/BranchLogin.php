@@ -2,6 +2,7 @@
 
 defined('BASEPATH') OR exit('');
 // require(APPPATH '.libraries/REST_Controller.php');
+// require('.controllers/TokenManager/TokenManager.php'); ??? Doesn't work ???
 
 
 class BranchLogin extends CI_Controller{
@@ -16,18 +17,17 @@ class BranchLogin extends CI_Controller{
     }
 
     public function Login(){
-        $json = $this->input->raw_input_stream;
-        $parsedJson;
-        if($parsedJson = json_decode($json)){
-            echo "Inside if condition";
-            $id = $parsedJson['id'];
-            $pass = $parsedJson['password'];
-
-            echo "User Id: ". $id . " <br> Password: " . $pass;
-        }else{
-            echo "Invalid Login";
-        }
-        echo "Outside if condition";
+        $json = $this->security->xss_clean($this->input->raw_input_stream);
+        $jsonAsObject = json_decode($json);
+        // echo $jsonAsObject->id;
+        // echo "<br>";
+        // echo $jsonAsObject->password;
+        // $token = TokenManager->generateToken($json);
+        $token = '011000010110100001100001011001100110100101110011';
+        echo $token;
+        // echo ~ $token;
+        // $this->output($token, 200);
+        http_response_code(200);
     }
 
     public function decodeToken($token){
