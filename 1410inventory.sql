@@ -72,16 +72,16 @@ CREATE TABLE `eventlog` (
 -- Table structure for table `items`
 --
 
-CREATE TABLE `items` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `code` varchar(10) NOT NULL,
-  `description` text,
-  `unitPrice` decimal(10,2) NOT NULL,
-  `quantity` int(6) NOT NULL,
-  `dateAdded` datetime NOT NULL,
-  `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE `items` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `name` varchar(50) NOT NULL,
+--   `code` varchar(10) NOT NULL,
+--   `description` text,
+--   `unitPrice` decimal(10,2) NOT NULL,
+--   `quantity` int(6) NOT NULL,
+--   `dateAdded` datetime NOT NULL,
+--   `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -147,13 +147,13 @@ ALTER TABLE `admin`
 ALTER TABLE `eventlog`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `items`
---
-ALTER TABLE `items`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD UNIQUE KEY `code` (`code`);
+-- --
+-- -- Indexes for table `items`
+-- --
+-- ALTER TABLE `items`
+--   ADD PRIMARY KEY (`id`),
+--   ADD UNIQUE KEY `name` (`name`),
+--   ADD UNIQUE KEY `code` (`code`);
 
 --
 -- Indexes for table `transactions`
@@ -176,10 +176,10 @@ ALTER TABLE `admin`
 ALTER TABLE `eventlog`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `items`
---
-ALTER TABLE `items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+-- -- AUTO_INCREMENT for table `items`
+-- --
+-- ALTER TABLE `items`
+--   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `transactions`
 --
@@ -323,7 +323,7 @@ create table Items (
 	Name INT,
 	DateAdded DATE,
 	AddedById INT,
-	LastModifiedDate DATE,
+	LastModifiedDate DATE DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	LastModifiedID INT
 );
 -- insert into Items (Id, Name, DateAdded, AddedById, LastModifiedDate, LastModifiedID) values (1, 1, '11/15/2017', 1, '11/15/2017', 1);
