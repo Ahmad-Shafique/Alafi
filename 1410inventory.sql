@@ -89,12 +89,12 @@ CREATE TABLE `eventlog` (
 -- Table structure for table `lk_sess`
 --
 
-CREATE TABLE `lk_sess` (
-  `id` varchar(40) NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `data` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE `lk_sess` (
+--   `id` varchar(40) NOT NULL,
+--   `ip_address` varchar(45) NOT NULL,
+--   `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
+--   `data` blob NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -102,32 +102,32 @@ CREATE TABLE `lk_sess` (
 -- Table structure for table `transactions`
 --
 
-CREATE TABLE `transactions` (
-  `transId` bigint(20) UNSIGNED NOT NULL,
-  `ref` varchar(10) NOT NULL,
-  `itemName` varchar(50) NOT NULL,
-  `itemCode` varchar(50) NOT NULL,
-  `description` text,
-  `quantity` int(6) NOT NULL,
-  `unitPrice` decimal(10,2) NOT NULL,
-  `totalPrice` decimal(10,2) NOT NULL,
-  `totalMoneySpent` decimal(10,2) NOT NULL,
-  `amountTendered` decimal(10,2) NOT NULL,
-  `discount_amount` decimal(10,2) NOT NULL,
-  `discount_percentage` decimal(10,2) NOT NULL,
-  `vatPercentage` decimal(10,2) NOT NULL,
-  `vatAmount` decimal(10,2) NOT NULL,
-  `changeDue` decimal(10,2) NOT NULL,
-  `modeOfPayment` varchar(20) NOT NULL,
-  `cust_name` varchar(20) DEFAULT NULL,
-  `cust_phone` varchar(15) DEFAULT NULL,
-  `cust_email` varchar(50) DEFAULT NULL,
-  `transType` char(1) NOT NULL,
-  `staffId` bigint(20) UNSIGNED NOT NULL,
-  `transDate` datetime NOT NULL,
-  `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `cancelled` char(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE `transactions` (
+--   `transId` bigint(20) UNSIGNED NOT NULL,
+--   `ref` varchar(10) NOT NULL,
+--   `itemName` varchar(50) NOT NULL,
+--   `itemCode` varchar(50) NOT NULL,
+--   `description` text,
+--   `quantity` int(6) NOT NULL,
+--   `unitPrice` decimal(10,2) NOT NULL,
+--   `totalPrice` decimal(10,2) NOT NULL,
+--   `totalMoneySpent` decimal(10,2) NOT NULL,
+--   `amountTendered` decimal(10,2) NOT NULL,
+--   `discount_amount` decimal(10,2) NOT NULL,
+--   `discount_percentage` decimal(10,2) NOT NULL,
+--   `vatPercentage` decimal(10,2) NOT NULL,
+--   `vatAmount` decimal(10,2) NOT NULL,
+--   `changeDue` decimal(10,2) NOT NULL,
+--   `modeOfPayment` varchar(20) NOT NULL,
+--   `cust_name` varchar(20) DEFAULT NULL,
+--   `cust_phone` varchar(15) DEFAULT NULL,
+--   `cust_email` varchar(50) DEFAULT NULL,
+--   `transType` char(1) NOT NULL,
+--   `staffId` bigint(20) UNSIGNED NOT NULL,
+--   `transDate` datetime NOT NULL,
+--   `lastUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--   `cancelled` char(1) NOT NULL DEFAULT '0'
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -230,7 +230,7 @@ create table Customers (
 -- insert into Customers (id, Name, MobileNumber, TotalPurchaseInDinars, CreditAmountInDinars, DateAdded, LastModifiedDate, LastModifiedID, AddedById) values (1, 'Hildegarde Klagges', '3932417135', 89.53, 66.933, '10/23/2018', '7/23/2018', 1, 1);
 -- insert into Customers (id, Name, MobileNumber, TotalPurchaseInDinars, CreditAmountInDinars, DateAdded, LastModifiedDate, LastModifiedID, AddedById) values (2, 'Nat Dundon', '8058018171', 40.798, 71.421, '8/5/2018', '8/26/2018', 2, 2);
 
-create table Staff (
+create table Staffs (
 	Id INT,
 	Name VARCHAR(50),
 	CivilIdNumber INT,
@@ -354,7 +354,7 @@ create table BranchItems (
 -- insert into BranchItems (BranchId, ItemId, AmountAvailable, UnitPrice, DateAdded, AddedById, LastModifiedDate, LastModifiedID) values (1, 1, 25.473, 77.461, '4/18/2018', 1, '10/3/2018', 1);
 -- insert into BranchItems (BranchId, ItemId, AmountAvailable, UnitPrice, DateAdded, AddedById, LastModifiedDate, LastModifiedID) values (2, 2, 28.006, 66.651, '6/19/2018', 2, '10/24/2018', 2);
 
-create table RevaluationHistory (
+create table RevaluationHistories (
 	Id INT,
 	ItemId INT,
 	OriginalUnitPrice DECIMAL(4,3),
@@ -392,7 +392,7 @@ create table ItemSalesControl (
 -- insert into ItemSalesControl (Id, ItemId, RevaluationPrice, TotalAvailable, Profit, DateAdded, AddedById, LastModifiedDate, LastModifiedId) values (1, 1, 1.339, 2.155, 11.728, '8/6/2018', 1, '1/15/2018', 1);
 -- insert into ItemSalesControl (Id, ItemId, RevaluationPrice, TotalAvailable, Profit, DateAdded, AddedById, LastModifiedDate, LastModifiedId) values (2, 2, 3.169, 7.671, 4.786, '3/27/2018', 2, '12/6/2017', 2);
 
-create table TemporaryStorage (
+create table TemporaryStorages (
 	Id INT,
 	ItemId INT,
 	TotalAvailable DECIMAL(5,3),
@@ -406,7 +406,7 @@ create table TemporaryStorage (
 -- insert into TemporaryStorage (Id, ItemId, TotalAvailable, UnitPrice, ShipmentNumber, DateAdded, AddedById, LastModifiedDate, LastModifiedId) values (1, 1, 1.522, 5.348, 'interactive', '7/26/2018', 1, '9/21/2018', 1);
 -- insert into TemporaryStorage (Id, ItemId, TotalAvailable, UnitPrice, ShipmentNumber, DateAdded, AddedById, LastModifiedDate, LastModifiedId) values (2, 2, 1.124, 3.63, 'structure', '6/22/2018', 2, '3/13/2018', 2);
 
-create table ItemSalesRecord (
+create table ItemSalesRecords (
 	Id INT,
 	ItemId INT,
 	ShipmentNumber VARCHAR(50),

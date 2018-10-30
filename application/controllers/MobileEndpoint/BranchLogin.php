@@ -14,7 +14,7 @@ class BranchLogin extends CI_Controller{
         // $this->genlib->superOnly();
         
         $this->load->model("article_model","article");
-        $this->load->model("items_model","items");
+        $this->load->model("Ahafis/items_model","items");
 
 
         // $this->load->database();
