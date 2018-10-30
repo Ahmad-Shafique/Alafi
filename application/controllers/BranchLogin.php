@@ -14,6 +14,12 @@ class BranchLogin extends CI_Controller{
         // $this->genlib->superOnly();
         
         // $this->load->model(['admin']);
+
+        $this->load->database();
+
+        $this->load->helper('url');
+
+        $this->load->library('Grocery_CRUD');
     }
 
     public function Login(){
@@ -32,6 +38,17 @@ class BranchLogin extends CI_Controller{
 
     public function decodeToken($token){
         
+    }
+
+    public function checkGroceryRender(){
+        $crud = new grocery_CRUD();
+        // $this->$grocery_crud->set_table('employees');
+        $crud->set_table('employees');
+        $output = $crud->Grocery_CRUD->render();
+        echo "<pre>";
+        print_r($output);
+        echo "</pre>";
+        die();
     }
 
     public function getReq(){
