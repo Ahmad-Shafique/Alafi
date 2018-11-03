@@ -9,19 +9,40 @@ class BranchLogin extends CI_Controller{
     public function __construct(){
         parent::__construct();
         
-        // $this->genlib->checkLogin();
-        
-        // $this->genlib->superOnly();
-        
-        $this->load->model("article_model","article");
-        $this->load->model("Ahafis/items_model","items");
+        // $this->load->model("article_model","article");
+        // $this->load->model("Ahafis/items_model","items");
+        // $this->load->model("Ahafis/items_model","items");
+        $this->load->model("Ahafis/admin_model","admins");
 
+    }
 
-        // $this->load->database();
-
-        // $this->load->helper('url');
-
-        // $this->load->library('Grocery_CRUD');
+    public function loginUsingIdAndPassword(){
+        /*
+        receives a json object in the body of the format:
+            {
+                "id":1,
+                "password":"xyz"
+            }
+        */
+        $json = $this->security->xss_clean($this->input->raw_input_stream);
+        $jsonAsObject = json_decode($json);
+        $loginDetails = $this->admins->get($jsonAsObject->id);
+        if($loginDetails==null){
+            echo "User Id Not Found";
+        }else if($loginDetails->password != $jsonAsObject->password){
+            echo "Incorrect Password";
+        }else if($loginDetails->role != 'retail'){
+            echo "Incorrect privilege";
+        }else{
+            /*
+            Replace with JWT later
+            */
+            echo $loginDetails->id;
+            /*
+            Replace with JWT later
+            */
+        }
+        // if($loginDetails->pass)
     }
 
 

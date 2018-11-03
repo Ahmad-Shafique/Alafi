@@ -42,7 +42,7 @@ class Admin extends CI_Model{
                 : 
         $this->db->set('created_on', "NOW()", FALSE);
         
-        $this->db->insert('admin', $data);
+        $this->db->insert('admins', $data);
         
         if($this->db->affected_rows() > 0){
             return $this->db->insert_id();
@@ -76,7 +76,7 @@ class Admin extends CI_Model{
                 : 
         $this->db->set('last_login', "NOW()", FALSE);
         
-        $this->db->update('admin');
+        $this->db->update('admins');
         
         if(!$this->db->error()){
             return TRUE;
@@ -105,7 +105,7 @@ class Admin extends CI_Model{
         $this->db->select('id, first_name, last_name, role');
         $this->db->where('email', $email);
 
-        $run_q = $this->db->get('admin');
+        $run_q = $this->db->get('admins');
 
         if($run_q->num_rows() > 0){
             return $run_q->result();
@@ -142,7 +142,7 @@ class Admin extends CI_Model{
         $this->db->limit($limit, $start);
         $this->db->order_by($orderBy, $orderFormat);
         
-        $run_q = $this->db->get('admin');
+        $run_q = $this->db->get('admins');
         
         if($run_q->num_rows() > 0){
             return $run_q->result();
@@ -170,7 +170,7 @@ class Admin extends CI_Model{
     */ 
     public function suspend($admin_id, $new_status){       
         $this->db->where('id', $admin_id);
-        $this->db->update('admin', ['account_status'=>$new_status]);
+        $this->db->update('admins', ['account_status'=>$new_status]);
 
         if($this->db->affected_rows()){
             return TRUE;
@@ -198,7 +198,7 @@ class Admin extends CI_Model{
     */
     public function delete($admin_id, $new_value){       
         $this->db->where('id', $admin_id);
-        $this->db->update('admin', ['deleted'=>$new_value]);
+        $this->db->update('admins', ['deleted'=>$new_value]);
        
         if($this->db->affected_rows()){
             return TRUE;
@@ -225,7 +225,7 @@ class Admin extends CI_Model{
      * @return boolean
      */
     public function adminSearch($value){
-        $q = "SELECT * FROM admin WHERE 
+        $q = "SELECT * FROM admins WHERE 
                 id != {$_SESSION['admin_id']}
                     AND
                 (
@@ -267,7 +267,7 @@ class Admin extends CI_Model{
         
         $this->db->where('id', $admin_id);
         
-        $this->db->update('admin', $data);
+        $this->db->update('admins', $data);
         
         return TRUE;
     }
