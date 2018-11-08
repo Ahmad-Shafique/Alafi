@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
 
 RewriteEngine On
-RewriteBase /mini-inventory-and-sales-management-system
+RewriteBase /Ahafis
 
 # Disable Directory Browsing
 Options All -Indexes
