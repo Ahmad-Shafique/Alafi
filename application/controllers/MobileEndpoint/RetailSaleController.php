@@ -128,10 +128,10 @@ class RetailSaleController extends CI_Controller{
             $newBranchProfit = $branchRow->TotalProfitInDinars + $jsonAsObject->TotalProfit;
             $update_id = $this->branch->update($branchId, array('TotalProfitInDinars'=>$newBranchProfit));
             
-            echo "successful";
+            echo "success";
 
         }else{
-            echo "not authorized";
+            echo "Incorrect privilege";
         }
 
 

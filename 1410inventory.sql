@@ -313,6 +313,7 @@ create table Shipments (
 	LastModifiedDate DATE,
 	LastModifiedID INT
 );
+
 create table Items (
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Name INT,

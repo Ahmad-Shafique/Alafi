@@ -25,7 +25,6 @@ class Test extends CI_Controller {
         echo md5(time());
     }
     
-    
     public function a(){
         $this->load->view('test');
     }

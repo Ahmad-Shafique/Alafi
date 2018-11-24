@@ -19,7 +19,6 @@ class ExpenseController extends CI_Controller{
 
         /**
          * Receives a JSON object of these formats:
-         * Cash sale:
          * {
          * "AmountInDinars":20,
          * "Reason":"xyz reason"
@@ -64,7 +63,7 @@ class ExpenseController extends CI_Controller{
             echo "successful";
 
         }else{
-            echo "not authorized";
+            echo "Incorrect privilege";
         }
 
     }

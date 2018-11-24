@@ -34,13 +34,15 @@ loginForm.onsubmit = function(e){
 	
 	//call function to handle log in and get the returned data through a callback
 	handleLogin(email, password, function(returnedData){
+       console.log("Entered function");
 	   if(returnedData.status === 1){
                 document.getElementById('errMsg').innerHTML = "Authenticated. Redirecting....";
-                
+                console.log("Authenticated, now redirecting");
                 handleLoginRedirect();
             }
 
             else{
+                console.log("No data returned");
                 //display error message
                 document.getElementById('errMsg').innerHTML = returnedData.msg;
             }
@@ -54,6 +56,7 @@ loginForm.onsubmit = function(e){
 function handleLoginRedirect(){
     //get the current url to check whether "red_uri" is set. Red_uri is suppose to hold details about the url user was trying to access
     //before been redirected to log in
+    console.log("Entered handleLoginRedirect()");
     
     var currentUrl = window.location.href;
     
