@@ -34,7 +34,7 @@ CREATE TABLE `admins` (
   `mobile1` varchar(15) NOT NULL,
   `mobile2` varchar(15) NOT NULL,
   `password` char(60) NOT NULL,
-  `role` char(5) NOT NULL,
+  `role` char(6) NOT NULL,
   `created_on` datetime NOT NULL,
   `last_login` datetime NOT NULL,
   `last_seen` datetime NOT NULL,

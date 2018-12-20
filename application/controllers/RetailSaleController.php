@@ -9,11 +9,11 @@ class RetailSaleController extends CI_Controller{
     public function __construct(){
         parent::__construct();
         
-        $this->load->model("Ahafis/customers_model","customers");
-        $this->load->model("Ahafis/branchesaleitems_model","sale_items");
-        $this->load->model("Ahafis/branchesaletransactions_model","sale");
-        $this->load->model("Ahafis/branchitems_model","inventory");
-        $this->load->model("Ahafis/branches_model","branch");
+        $this->load->model("customers_model","customers");
+        $this->load->model("branchesaleitems_model","sale_items");
+        $this->load->model("branchesaletransactions_model","sale");
+        $this->load->model("branchitems_model","inventory");
+        $this->load->model("branches_model","branch");
 
     }
 
@@ -140,14 +140,6 @@ class RetailSaleController extends CI_Controller{
 
 
 
-    }
-
-
-    public function getReq(){
-        echo "Successful get request";
-        // echo "<br>";
-        // echo "Hello World";
-        // return "Successful get request";
     }
 
 

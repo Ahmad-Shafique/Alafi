@@ -12,7 +12,7 @@ class BranchLogin extends CI_Controller{
         // $this->load->model("article_model","article");
         // $this->load->model("Ahafis/items_model","items");
         // $this->load->model("Ahafis/items_model","items");
-        $this->load->model("Ahafis/admin_model","admins");
+        $this->load->model("admin_model","admins");
 
     }
 
@@ -89,12 +89,12 @@ class BranchLogin extends CI_Controller{
     // //     die();
     // // }
 
-    public function getReq(){
-        echo "Successful get request";
-        // echo "<br>";
-        // echo "Hello World";
-        // return "Successful get request";
-    }
+    // public function getReq(){
+    //     echo "Successful get request";
+    //     // echo "<br>";
+    //     echo "Hello World";
+    //     // return "Successful get request";
+    // }
 
     // public function receiveJsonData($token){
     //     echo $token;

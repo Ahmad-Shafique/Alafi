@@ -9,7 +9,7 @@ class CustomerInfoController extends CI_Controller{
     public function __construct(){
         parent::__construct();
         
-        $this->load->model("Ahafis/customers_model","customers");
+        $this->load->model("customers_model","customers");
 
     }
 
@@ -61,13 +61,6 @@ class CustomerInfoController extends CI_Controller{
                 "password":"xyz"
             }
         */
-    }
-
-    public function getReq(){
-        echo "Successful get request";
-        // echo "<br>";
-        // echo "Hello World";
-        // return "Successful get request";
     }
 
     // public function Login(){

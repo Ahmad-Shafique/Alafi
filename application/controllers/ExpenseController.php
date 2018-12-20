@@ -5,8 +5,8 @@ class ExpenseController extends CI_Controller{
     public function __construct(){
         parent::__construct();
         
-        $this->load->model("Ahafis/branches_model","branch");
-        $this->load->model("Ahafis/branchexpensetransactions_model","expense");
+        $this->load->model("branches_model","branch");
+        $this->load->model("branchexpensetransactions_model","expense");
 
     }
 
@@ -66,13 +66,6 @@ class ExpenseController extends CI_Controller{
             echo "Incorrect privilege";
         }
 
-    }
-
-    public function getReq(){
-        echo "Successful get request";
-        // echo "<br>";
-        // echo "Hello World";
-        // return "Successful get request";
     }
 }
 

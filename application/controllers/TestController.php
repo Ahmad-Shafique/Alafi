@@ -7,22 +7,22 @@ class TestController extends CI_Controller{
     public function __construct(){
         parent::__construct();
 
-        $this->load->model("Ahafis/branches_model");
-        $this->load->model("Ahafis/branchesaleitems_model");
-        $this->load->model("Ahafis/branchesaletransactions_model");
-        $this->load->model("Ahafis/branchexpensetransactions_model");
-        $this->load->model("Ahafis/branchitems_model");
-        $this->load->model("Ahafis/customers_model");
-        $this->load->model("Ahafis/items_model");
-        $this->load->model("Ahafis/itemsalescontrol_model");
-        $this->load->model("Ahafis/itemsalesrecord_model");
-        $this->load->model("Ahafis/revaluationhistory_model");
-        $this->load->model("Ahafis/revaluationprofits_model");
-        $this->load->model("Ahafis/shipmentitems_model");
-        $this->load->model("Ahafis/staff_model");
-        $this->load->model("Ahafis/suppliers_model");
-        $this->load->model("Ahafis/temporarystorage_model");
-        $this->load->model("Ahafis/transactions_model");
+        $this->load->model("branches_model");
+        $this->load->model("branchesaleitems_model");
+        $this->load->model("branchesaletransactions_model");
+        $this->load->model("branchexpensetransactions_model");
+        $this->load->model("branchitems_model");
+        $this->load->model("customers_model");
+        $this->load->model("items_model");
+        $this->load->model("itemsalescontrol_model");
+        $this->load->model("itemsalesrecord_model");
+        $this->load->model("revaluationhistory_model");
+        $this->load->model("revaluationprofits_model");
+        $this->load->model("shipmentitems_model");
+        $this->load->model("staff_model");
+        $this->load->model("suppliers_model");
+        $this->load->model("temporarystorage_model");
+        $this->load->model("transactions_model");
     }
 
     public function get(){
@@ -61,13 +61,6 @@ class TestController extends CI_Controller{
         $row = $this->transactions_model->get(1);   
         echo $row->Id;
         
-    }
-
-    public function getReq(){
-        echo "Successful get request";
-        // echo "<br>";
-        // echo "Hello World";
-        // return "Successful get request";
     }
 
 
