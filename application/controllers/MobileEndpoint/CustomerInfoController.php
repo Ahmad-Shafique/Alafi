@@ -21,8 +21,12 @@ class CustomerInfoController extends CI_Controller{
         */
 
         $result = $this->customers->get_all();
-        $json = json_encode($result);
-        echo $json;
+        // $json = json_encode($result);
+        // echo $json;
+        return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode($result));
     }
 
     public function insertCustomerDetailsIntoDB($Name, $MobileNumber, $AddedById, $TotalPurchaseInDinars=0, 
@@ -47,7 +51,22 @@ class CustomerInfoController extends CI_Controller{
         */
         $json = $this->security->xss_clean($this->input->raw_input_stream);
         $jsonAsObject = json_decode($json);
-        echo $this->insertCustomerDetailsIntoDB($jsonAsObject->Name, $jsonAsObject->MobileNumber,$token);
+        
+        if($this->insertCustomerDetailsIntoDB($jsonAsObject->Name, $jsonAsObject->MobileNumber,$token) > 0){
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode(array(
+                    'message' => 'Success'
+                )));
+        }else{
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array(
+                    'message' => 'Failed to insert'
+                )));
+        }
         
     }
 
@@ -69,37 +88,6 @@ class CustomerInfoController extends CI_Controller{
         // echo "Hello World";
         // return "Successful get request";
     }
-
-    // public function Login(){
-    //     /*
-    //     receives a json object in the body of the format:
-    //         {
-    //             "id":1,
-    //             "password":"xyz"
-    //         }
-    //     */
-    //     $json = $this->security->xss_clean($this->input->raw_input_stream);
-    //     $jsonAsObject = json_decode($json);
-    //     $loginDetails = $this->admins->get($jsonAsObject->id);
-    //     if($loginDetails==null){
-    //         echo "User Id Not Found";
-    //     }else if($loginDetails->password != $jsonAsObject->password){
-    //         echo "Incorrect Password";
-    //     }else if($loginDetails->role != 'retail'){
-    //         echo "Incorrect privilege";
-    //     }else{
-    //         /*
-    //         Replace with JWT later
-    //         */
-    //         echo $loginDetails->id;
-    //         /*
-    //         Replace with JWT later
-    //         */
-    //     }
-    //     // if($loginDetails->pass)
-    // }
-
-
 
 
 }

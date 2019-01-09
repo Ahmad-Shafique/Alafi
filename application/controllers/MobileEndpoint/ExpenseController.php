@@ -60,10 +60,22 @@ class ExpenseController extends CI_Controller{
                 'BranchId'=>$branchId, 'DateAdded'=>date('YYYY-MM-DD',time()), 'AddedById'=>$id,
                 'LastModifiedDate'=>date('YYYY-MM-DD'), 'LastModifiedID'=>$id
             ), FALSE);         
-            echo "successful";
+            // echo "successful";
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode(array(
+                        'message' => 'Success'
+                )));
 
         }else{
-            echo "Incorrect privilege";
+            // echo "Incorrect privilege";
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array(
+                        'message' => 'Incorrect privilege'
+                )));
         }
 
     }

@@ -128,10 +128,22 @@ class RetailSaleController extends CI_Controller{
             $newBranchProfit = $branchRow->TotalProfitInDinars + $jsonAsObject->TotalProfit;
             $update_id = $this->branch->update($branchId, array('TotalProfitInDinars'=>$newBranchProfit));
             
-            echo "success";
+            // echo "success";
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode(array(
+                        'message' => 'Success'
+                )));
 
         }else{
-            echo "Incorrect privilege";
+            // echo "Incorrect privilege";
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array(
+                        'message' => 'Incorrect privilege'
+                )));
         }
 
 

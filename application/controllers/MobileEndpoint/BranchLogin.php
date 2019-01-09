@@ -28,16 +28,36 @@ class BranchLogin extends CI_Controller{
         $jsonAsObject = json_decode($json);
         $loginDetails = $this->admins->get($jsonAsObject->id);
         if($loginDetails==null){
-            echo "User Id Not Found";
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array(
+                        'message' => 'User Id Not Found'
+                )));
         }else if($loginDetails->password != $jsonAsObject->password){
-            echo "Incorrect Password";
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array(
+                        'message' => 'Incorrect Password'
+                )));
         }else if($loginDetails->role != 'retail'){
-            echo "Incorrect privilege";
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(400)
+                ->set_output(json_encode(array(
+                        'message' => 'Incorrect Privilege'
+                )));
         }else{
             /*
             Replace with JWT later
             */
-            echo $loginDetails->id;
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode(array(
+                        'token' => $loginDetails->id
+                )));
             /*
             Replace with JWT later
             */
@@ -46,15 +66,7 @@ class BranchLogin extends CI_Controller{
     }
 
 
-    public function getArticle(){
-        $row = $this->article->get(2);   
-        echo $row->body;
-    }
 
-    public function getItem(){
-        $row = $this->items->get(2);   
-        echo $row->name;
-    }
 
     // public function Login(){
     //     $json = $this->security->xss_clean($this->input->raw_input_stream);
